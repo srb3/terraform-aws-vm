@@ -3,12 +3,6 @@ variable "name" {
   type        = string
 }
 
-variable "instance_count" {
-  description = "The number of instnaces to create"
-  type        = number
-  default     = 1
-}
-
 variable "ami" {
   description = "ID of AMI to use for the instance/s"
   type        = string
