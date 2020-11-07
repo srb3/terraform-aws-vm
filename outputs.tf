@@ -17,3 +17,8 @@ output "private_ip" {
   description = "List of private IP addresses assigned to the instances"
   value       = flatten(module.ec2_instance.*.private_ip)
 }
+
+output "password_data" {
+  description = "List of Base-64 encoded encrypted password data for the instance"
+  value       = flatten(module.ec2_instance.*.password_data)
+}

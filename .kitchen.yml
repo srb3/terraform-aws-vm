@@ -1,0 +1,22 @@
+---
+driver:
+  name: terraform
+
+provisioner:
+  name: terraform
+
+platforms:
+- name: local
+
+verifier:
+  name: terraform
+  systems:
+    - name: system
+      backend: local
+
+suites:
+  - name: instances
+    driver:
+      name: terraform
+      command_timeout: 1800
+      root_module_directory: test/fixtures/instances

@@ -79,6 +79,12 @@ variable "associate_public_ip_address" {
   default     = null
 }
 
+variable "get_password_data" {
+  description = "If true, wait for password data to become available and retrieve it."
+  type        = bool
+  default     = false
+}
+
 variable "tags" {
   description = "mapping of tags to assign to the resource"
   type        = map(string)

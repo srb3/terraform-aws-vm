@@ -15,5 +15,6 @@ module "ec2_instance" {
   ebs_block_device            = var.ebs_block_device
   ephemeral_block_device      = var.ephemeral_block_device
   associate_public_ip_address = var.associate_public_ip_address
+  get_password_data           = var.get_password_data
   tags                        = var.tags
 }
