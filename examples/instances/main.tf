@@ -63,10 +63,10 @@ resource "random_id" "hash" {
 
 locals {
   public_subnets = ["10.0.1.0/24"]
-  azs            = [
-                     data.aws_availability_zones.available.names[0],
-                     data.aws_availability_zones.available.names[1]
-                   ]
+  azs = [
+    data.aws_availability_zones.available.names[0],
+    data.aws_availability_zones.available.names[1]
+  ]
   linux_ingress_rules = ["ssh-tcp"]
   linux_egress_rules  = ["all-all"]
   linux_egress_cidrs  = ["0.0.0.0/0"]
@@ -75,7 +75,7 @@ locals {
 
   windows_ingress_rules = ["winrm-http-tcp", "winrm-https-tcp", "rdp-tcp", "rdp-udp"]
   windows_egress_rules  = ["all-all"]
-  windows_egress_cidrs = ["0.0.0.0/0"]
+  windows_egress_cidrs  = ["0.0.0.0/0"]
   windows_instance_type = "t3.medium"
   windows_rbd           = [{ volume_type = "gp2", volume_size = "40" }]
 
@@ -156,7 +156,7 @@ module "instance" {
   security_group_ids          = each.value["security_group_ids"]
   subnet_ids                  = each.value["subnet_ids"]
   root_block_device           = each.value["root_block_device"]
-  associate_public_ip_address = each.value["public_ip_address"] 
+  associate_public_ip_address = each.value["public_ip_address"]
   get_password_data           = each.value["get_password_data"]
   tags                        = var.tags
 }
