@@ -22,3 +22,8 @@ output "password_data" {
   description = "List of Base-64 encoded encrypted password data for the instance"
   value       = flatten(module.ec2_instance.*.password_data)
 }
+
+output "id" {
+  description = "The id of the instance"
+  value       = flatten(module.ec2_instance.*.id)
+}
